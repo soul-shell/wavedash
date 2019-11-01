@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>~dev</title>
+  <link rel="stylesheet" href="dist/app.css">
+</head>
+<body>
+  <script>
+    // Stub for ReactJS
+    window.process = { env: { NODE_ENV: 'development' } };
+  </script>
+
+  <script src="/moduleserve/load.js" data-module="./lib/js/src/Index.bs.js"></script>
+  <script src="./watcher.js"></script>
+</body>
+</html>
