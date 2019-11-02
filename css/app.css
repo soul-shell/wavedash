@@ -1,10 +1,8 @@
-body {
-  margin: auto;
-  max-width: 720px;
+@font-face {
+  font-family: 'Chicago';
+  src: url('{{ dist }}chicagoflf.woff2') format('woff2');
 }
 
-.container {
-  margin: 24px;
-  padding: 12px;
-  background: #f3f3f3;
+body, input, button {
+  font: 17px 'Chicago', sans-serif;
 }
