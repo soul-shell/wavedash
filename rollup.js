@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import { terser } from "rollup-plugin-terser";
 
 export default {
-  input: 'lib/js/src/Index.bs.js',
+  input: 'lib/js/src/app.bs.js',
   output: {
     file: 'dist/app.js',
     format: 'iife',

@@ -11,7 +11,9 @@ let make = () => {
         <a className="window-titlebar__close-button" href="/" />
       </div>
       <div className="window-content">
-        <a className="item-row" href="#"> {React.string("Azure")} </a>
+        <RouterLink className="item-row" url="chats/azure">
+          {React.string("Azure")}
+        </RouterLink>
       </div>
     </div>
   </div>;

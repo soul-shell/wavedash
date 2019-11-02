@@ -3,4 +3,4 @@
 let container = document##createElement("main");
 let () = document##body##appendChild(container);
 
-ReactDOMRe.render(<Chats />, container);
+ReactDOMRe.render(<Router />, container);
