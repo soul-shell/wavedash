@@ -5,7 +5,7 @@ let make = () => {
       <div className="window-titlebar">
         <div className="window-titlebar__stripes">
           <div className="window-titlebar__stripes__title">
-            {React.string("Chats")}
+            {React.string("~Chats")}
           </div>
         </div>
         <a className="window-titlebar__close-button" href="/" />

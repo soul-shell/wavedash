@@ -5,6 +5,7 @@ let make = () => {
 
   switch (path) {
   | ["chats"] => <Chats />
+  | ["chats", name] => <Chat name />
   | _ => <div> {React.string("?")} </div>
   };
 };

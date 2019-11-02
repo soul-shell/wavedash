@@ -1,0 +1,13 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat__message {
+  padding: 8px 0;
+}
+
+.chat__message--incoming {
+  align-self: end;
+  /* padding-left: 16px; */
+}
