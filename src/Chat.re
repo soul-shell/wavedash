@@ -18,19 +18,8 @@ let make = (~name) => {
          <div className> {React.string(m.text)} </div>;
        });
 
-  <div>
-    <div className="window">
-      <div className="window-titlebar">
-        <div className="window-titlebar__stripes">
-          <div className="window-titlebar__stripes__title">
-            {React.string("~Chats: " ++ name)}
-          </div>
-        </div>
-        <a className="window-titlebar__close-button" href="/" />
-      </div>
-      <div className="window-content">
-        <div className="chat"> {React.array(chats)} </div>
-      </div>
-    </div>
-  </div>;
+  let main = <div className="chat"> {React.array(chats)} </div>;
+  let side = <div> {React.string("h")} </div>;
+
+  <Window title={"~Chats: " ++ name} main side />;
 };

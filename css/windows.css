@@ -49,10 +49,20 @@
   text-transform: capitalize;
 }
 
-.window-content {
-  padding: 32px;
+.window-panes {
+  display: flex;
   border: 3px solid;
   margin: 1px;
+}
+
+.window-panes__main {
+  flex: 1 1 0;
+  padding: 32px;
+  border-right: 3px solid;
+}
+
+.window-panes__side {
+  min-width: 250px;
 }
 
 .item-row {
