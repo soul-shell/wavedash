@@ -12,6 +12,10 @@
   src: url('{{ dist }}chicagoflf.woff2') format('woff2');
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body, input, button {
   font: 17px 'Chicago', sans-serif;
 }

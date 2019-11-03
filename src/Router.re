@@ -16,10 +16,19 @@ let make = () => {
 
   <>
     <header className="top-bar">
-      <a className="top-bar-wave" href="#">
+      <div className="top-bar-wave top-bar-dropdown">
         <span className="top-bar-wave__glyph"> {React.string("~")} </span>
-      </a>
-      <a className="top-bar-link" href="#"> {React.string("File")} </a>
+        <div className="top-bar-dropdown__content">
+          <a className="top-bar-link" href="#"> {React.string("About Wavedash")} </a>
+        </div>
+      </div>
+      <div className="top-bar-dropdown">
+        {React.string("File")}
+        <div className="top-bar-dropdown__content">
+          <a className="top-bar-link" href="#"> {React.string("Close window")} </a>
+          <a className="top-bar-link" href="#"> {React.string("Show clipboard")} </a>
+        </div>
+      </div>
     </header>
     <section className="desktop"> window </section>
   </>;

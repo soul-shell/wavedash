@@ -1,3 +1,7 @@
+:root {
+  --top-bar-height: 40px;
+}
+
 .top-bar {
   display: flex;
   background: white;
@@ -8,28 +12,53 @@
   font-size: var(--header-font-size);
 }
 
-.top-bar-wave,
-.top-bar-link {
+.top-bar-link,
+.top-bar-dropdown {
   color: black;
   text-decoration: none;
   padding: 0 16px;
 }
 
 .top-bar-link:hover,
-.top-bar-wave:hover {
+.top-bar-dropdown:hover {
   background: black;
   color: white;
 }
 
 .top-bar-wave {
-  position: relative;
-  width: 28px;
+  width: 58px;
 }
 
 .top-bar-wave__glyph {
   position: absolute;
   top: 4px;
   font-size: 42px;
+}
+
+.top-bar-dropdown {
+  display: flex;
+  position: relative;
+}
+
+.top-bar-dropdown__content {
+  position: absolute;
+  display: none;
+  top: var(--top-bar-height);
+  left: 0;
+  width: 300px;
+
+  background: white;
+  border: 2px solid black;
+  box-shadow: 2px 2px black;
+}
+
+.top-bar-dropdown__content > .top-bar-link {
+  flex: 1;
+}
+
+.top-bar-dropdown:hover > .top-bar-dropdown__content {
+  display: flex;
+  flex-direction: column;
 }
 
 .desktop {
