@@ -3,11 +3,17 @@
   flex-direction: column;
 }
 
-.chat__message {
+.chat-message {
   padding: 8px 0;
 }
 
-.chat__message--incoming {
-  align-self: end;
+.chat-message--incoming {
+  align-self: flex-end;
   /* padding-left: 16px; */
+}
+
+.chat-sprite {
+  display: block;
+  width: 250px;
+  height: 250px;
 }

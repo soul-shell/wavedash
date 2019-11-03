@@ -31,7 +31,7 @@
 }
 
 .window-titlebar__stripes {
-  width: 100%;
+  flex: 1;
   text-align: center;
   background: linear-gradient(to bottom,
     white calc(50% - 1px),
@@ -56,13 +56,14 @@
 }
 
 .window-panes__main {
-  flex: 1 1 0;
+  flex: 1;
   padding: 32px;
   border-right: 3px solid;
 }
 
 .window-panes__side {
   min-width: 250px;
+  padding: 12px;
 }
 
 .item-row {

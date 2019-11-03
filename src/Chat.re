@@ -4,7 +4,7 @@ type message = {
 };
 
 [@react.component]
-let make = (~name) => {
+let make = (~name, ~asset) => {
   let chats =
     [|
       {text: "the ones that got banned just a year ago?", own: false},
@@ -14,12 +14,12 @@ let make = (~name) => {
     |]
     |> Js.Array.map(m => {
          let className =
-           m.own ? "chat__message" : "chat__message chat__message--incoming";
+           m.own ? "chat-message" : "chat-message chat-message--incoming";
          <div className> {React.string(m.text)} </div>;
        });
 
   let main = <div className="chat"> {React.array(chats)} </div>;
-  let side = <div> {React.string("h")} </div>;
+  let side = <img className="chat-sprite" src={asset("azure.png")} />;
 
   <Window title={"~Chats: " ++ name} main side />;
 };
