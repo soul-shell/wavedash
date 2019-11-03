@@ -1,5 +1,5 @@
 [@react.component]
-let make = (~className, ~url, ~children) => {
+let make = (~className, ~url, ~children=React.null) => {
   let onClick = e => {
     ReactEvent.Mouse.preventDefault(e);
     ReasonReactRouter.push("#" ++ url);

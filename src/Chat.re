@@ -21,5 +21,5 @@ let make = (~name, ~asset) => {
   let main = <div className="chat"> {React.array(chats)} </div>;
   let side = <img className="chat-sprite" src={asset("azure.png")} />;
 
-  <Window title={"~Chats: " ++ name} main side />;
+  <Window title={"~Chats: " ++ name} backRoute="chats" main side />;
 };

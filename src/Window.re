@@ -1,13 +1,14 @@
 [@react.component]
-let make = (~title, ~main, ~side=?) => {
-  let panes =
+let make = (~title, ~main, ~side=?, ~backRoute: option(string)=?) => {
+  let backButton =
+    switch (backRoute) {
+    | Some(url) => <RouterLink className="window-titlebar__close-button" url />
+    | _ => React.null
+    };
+  let sidePane =
     switch (side) {
-    | Some(children) =>
-      <>
-        <div className="window-panes__main"> main </div>
-        <div className="window-panes__side"> children </div>
-      </>
-    | _ => <div className="window-panes__main"> main </div>
+    | Some(children) => <div className="window-panes__side"> children </div>
+    | _ => React.null
     };
 
   <div className="window">
@@ -17,8 +18,11 @@ let make = (~title, ~main, ~side=?) => {
           {React.string(title)}
         </div>
       </div>
-      <a className="window-titlebar__close-button" href="/" />
+      backButton
     </div>
-    <div className="window-panes"> panes </div>
+    <div className="window-panes">
+      <div className="window-panes__main"> main </div>
+      sidePane
+    </div>
   </div>;
 };
