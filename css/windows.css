@@ -16,21 +16,22 @@
   border-bottom: 2px solid;
   padding: 8px 0;
   line-height: 28px;
+  font-size: var(--header-font-size);
 }
 
-.window-titlebar__close-button {
-  width: 22px;
+.window-titlebar-close {
+  width: 26px;
   margin: 0 6px;
   border: 3px solid;
   text-decoration: none;
   color: black;
 }
 
-.window-titlebar__close-button:hover {
+.window-titlebar-close:hover {
   background: black;
 }
 
-.window-titlebar__stripes {
+.window-titlebar-stripes {
   flex: 1;
   text-align: center;
   background: linear-gradient(to bottom,
@@ -41,7 +42,7 @@
   background-size: 6px 4px;
 }
 
-.window-titlebar__stripes__title {
+.window-titlebar-stripes__title {
   display: inline-block;
   padding: 0 12px;
   margin-left: 28px;

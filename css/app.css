@@ -1,10 +1,14 @@
 @import "chats.css";
-@import "system.css";
+@import "topbar.css";
 @import "windows.css";
 
 :root {
   --screen-corner-radius: 12px;
-  --header-font-size: 21px;
+
+  --top-bar-height: 40px;
+  --top-bar-font-size: 21px;
+
+  --header-font-size: 19px;
 }
 
 @font-face {
@@ -33,4 +37,8 @@ main {
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFUlEQVQYlWNgGBwgISHh/yBQPIgAAKa/Bl4ztVlWAAAAAElFTkSuQmCC)
     repeat white;
   border-radius: var(--screen-corner-radius);
+}
+
+.desktop {
+  margin: auto;
 }

@@ -2,7 +2,7 @@
 let make = (~title, ~main, ~side=?, ~backRoute: option(string)=?) => {
   let backButton =
     switch (backRoute) {
-    | Some(url) => <RouterLink className="window-titlebar__close-button" url />
+    | Some(url) => <RouterLink className="window-titlebar-close" url />
     | _ => React.null
     };
   let sidePane =
@@ -13,8 +13,8 @@ let make = (~title, ~main, ~side=?, ~backRoute: option(string)=?) => {
 
   <div className="window">
     <div className="window-titlebar">
-      <div className="window-titlebar__stripes">
-        <div className="window-titlebar__stripes__title">
+      <div className="window-titlebar-stripes">
+        <div className="window-titlebar-stripes__title">
           {React.string(title)}
         </div>
       </div>

@@ -14,22 +14,5 @@ let make = () => {
     };
   ();
 
-  <>
-    <header className="top-bar">
-      <div className="top-bar-wave top-bar-dropdown">
-        <span className="top-bar-wave__glyph"> {React.string("~")} </span>
-        <div className="top-bar-dropdown__content">
-          <a className="top-bar-link" href="#"> {React.string("About Wavedash")} </a>
-        </div>
-      </div>
-      <div className="top-bar-dropdown">
-        {React.string("File")}
-        <div className="top-bar-dropdown__content">
-          <a className="top-bar-link" href="#"> {React.string("Close window")} </a>
-          <a className="top-bar-link" href="#"> {React.string("Show clipboard")} </a>
-        </div>
-      </div>
-    </header>
-    <section className="desktop"> window </section>
-  </>;
+  <> <TopBar /> <section className="desktop"> window </section> </>;
 };
