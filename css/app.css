@@ -1,5 +1,11 @@
 @import "chats.css";
+@import "system.css";
 @import "windows.css";
+
+:root {
+  --screen-corner-radius: 12px;
+  --header-font-size: 21px;
+}
 
 @font-face {
   font-family: 'Chicago';
@@ -11,14 +17,16 @@ body, input, button {
 }
 
 body {
-  height: 100vh;
   margin: 0;
-  display: flex;
-
-  /* Created using http://www.patternify.com */
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFUlEQVQYlWNgGBwgISHh/yBQPIgAAKa/Bl4ztVlWAAAAAElFTkSuQmCC) repeat;
+  background: black;
 }
 
 main {
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* Created using http://www.patternify.com */
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFUlEQVQYlWNgGBwgISHh/yBQPIgAAKa/Bl4ztVlWAAAAAElFTkSuQmCC)
+    repeat white;
+  border-radius: var(--screen-corner-radius);
 }
