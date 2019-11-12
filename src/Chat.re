@@ -1,24 +1,27 @@
-type message = {
-  text: string,
-  own: bool,
-};
-
 [@react.component]
-let make = (~name, ~asset) => {
-  let chats =
-    [|
-      {text: "the ones that got banned just a year ago?", own: false},
-      {text: "yes, those are the ones", own: true},
-      {text: "gimme the address and I'm on it", own: false},
-      {text: "here you go. take care", own: true},
-    |]
-    |> Js.Array.map(m => {
-         let className =
-           m.own ? "chat-message" : "chat-message chat-message--incoming";
-         <div className> {React.string(m.text)} </div>;
-       });
+let make = (~name, ~asset, ~state) => {
+  let chat =
+    List.find(
+      (c: State.chat) => c.name == "Azure",
+      State.Script.list_chats(state),
+    );
+  let messages = State.Script.chat_messages(state, chat);
 
-  let main = <div className="chat"> {React.array(chats)} </div>;
+  let message_items =
+    messages
+    |> List.map((m: State.chat_message) =>
+         switch (m) {
+         | State.Inbound(from, text) =>
+           <div className="chat-message chat-message--incoming">
+             {React.string(text)}
+           </div>
+         | State.Outbound(text) =>
+           <div className="chat-message"> {React.string(text)} </div>
+         }
+       )
+    |> Array.of_list;
+
+  let main = <div className="chat"> {React.array(message_items)} </div>;
   let side = <img className="chat-sprite" src={asset("azure.png")} />;
 
   <Window title={"~Chats: " ++ name} backRoute="chats" main side />;

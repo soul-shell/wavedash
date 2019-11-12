@@ -5,4 +5,4 @@ let () = document##body##appendChild(container);
 
 let state = State.Storage.load();
 
-ReactDOMRe.render(<Router />, container);
+ReactDOMRe.render(<Router state />, container);

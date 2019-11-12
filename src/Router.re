@@ -1,5 +1,5 @@
 [@react.component]
-let make = () => {
+let make = (~state) => {
   let production: bool = [%bs.raw {| process.env.NODE_ENV === 'production' |}];
   let asset = name => production ? "/" ++ name : "/dist/" ++ name;
 
@@ -9,7 +9,7 @@ let make = () => {
   let window =
     switch (path) {
     | ["chats"] => <Chats />
-    | ["chats", name] => <Chat name asset />
+    | ["chats", name] => <Chat name asset state />
     | _ => <div> {React.string("?")} </div>
     };
   ();

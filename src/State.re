@@ -1,59 +1,53 @@
-[@bs.deriving jsConverter]
-type chat =
-  | Azure
-  | Meli;
-
-let chat_name = chat =>
-  switch (chat) {
-  | Azure => "Azure"
-  | Meli => "Meli"
-  };
-
-type chat_msg = {
-  text: string,
-  from: option(string),
+type chat = {
+  name: string,
+  slug: string,
 };
 
-module WeekScript1 = {
-  type t = {chat_msg_idx: int};
+type chat_message =
+  | Outbound(string)
+  | Inbound(string, string);
 
-  let azure_messages = [|
-    {text: "the ones that got banned just a year ago?", from: Some("Azure")},
-    {text: "yes, those are the ones", from: None},
-    {text: "gimme the address and I'm on it", from: Some("Azure")},
-    {text: "here you go. take care", from: None},
-  |];
-
-  let chats = _ => [Azure];
-
-  let advance_chat = (state, _chat) =>
-    if (state.chat_msg_idx < Js.Array.length(azure_messages)) {
-      let new_state = {chat_msg_idx: state.chat_msg_idx + 1};
-      let msg = azure_messages[state.chat_msg_idx];
-      (new_state, Some(msg));
-    } else {
-      (state, None);
-    };
+type chat_callbacks = {
+  list_chats: unit => list(chat),
+  chat_messages: chat => list(chat_message),
 };
 
-[@bs.deriving jsConverter]
-type state =
-  | Intro
-  | Week1(WeekScript1.t);
+module Script = {
+  type azure_state =
+    | FirstMessage
+    | OrderSuggested
+    | OrderSaved;
 
-let defaultState = Intro;
+  [@bs.deriving jsConverter]
+  type state = {azure: azure_state};
+
+  let initialState = {azure: FirstMessage};
+
+  let azure_messages_1 = [
+    Inbound("Azure", "the ones that got banned just a year ago?"),
+    Outbound("yes, those are the ones"),
+    Inbound("Azure", "gimme the address and I'm on it"),
+    Outbound("here you go. take care"),
+  ];
+
+  let list_chats: state => list(chat) =
+    state => [{name: "Azure", slug: "Azure"}];
+
+  let chat_messages: (state, chat) => list(chat_message) =
+    (state, chat) => azure_messages_1;
+};
 
 module Storage = {
   [@bs.scope "JSON"] [@bs.val]
-  external stateToJson: state => string = "stringify";
+  external stateToJson: Script.state => string = "stringify";
 
   [@bs.scope "JSON"] [@bs.val]
-  external stateFromJson: string => state = "parse";
+  external stateFromJson: string => Script.state = "parse";
 
   let load = () =>
     "state"
     ->Dom.Storage.(getItem(localStorage))
-    ->Belt.Option.mapWithDefault(defaultState, stateFromJson);
+    ->Belt.Option.mapWithDefault(Script.initialState, stateFromJson);
 
   let save = s =>
     s |> stateToJson |> Dom.Storage.(setItem("state", _, localStorage));
