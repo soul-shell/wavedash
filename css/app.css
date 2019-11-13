@@ -6,7 +6,7 @@
   --screen-corner-radius: 12px;
 
   --top-bar-height: 40px;
-  --top-bar-font-size: 21px;
+  --top-bar-font-size: 20px;
 
   --header-font-size: 19px;
 }
@@ -27,12 +27,17 @@ body, input, button {
 body {
   margin: 0;
   background: black;
+  height: 100vh;
+  display: flex;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  margin: auto;
+  height: 96vh;
+  width: 128vh;
+
   /* Created using http://www.patternify.com */
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFUlEQVQYlWNgGBwgISHh/yBQPIgAAKa/Bl4ztVlWAAAAAElFTkSuQmCC)
     repeat white;

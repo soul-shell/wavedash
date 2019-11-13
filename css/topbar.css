@@ -27,7 +27,7 @@
 
 .top-bar-wave__glyph {
   position: absolute;
-  top: 4px;
+  top: 5px;
   font-size: 42px;
 }
 
@@ -60,5 +60,5 @@
 .top-bar-menu-sep {
   border: none;
   border-top: 3px dotted black;
-  margin: 12px 0;
+  margin: 10px 0;
 }
